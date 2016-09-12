@@ -10,6 +10,8 @@ bool isInsideCircle(const double x, const double y);
 
 void main() {
 	FILE *of = fopen("circle.txt", "w");
+
+
 	srand((unsigned int)time(NULL));
 	for (int i = 0; i < 10000; i++) {
 		double x = getRandomNumber(0, 1);
@@ -19,8 +21,22 @@ void main() {
 		if (isInsideCircle(x, y))
 			fprintf(of, "%f \t %f\n", x, y);
 
+		x = getRandomNumber(1, 1.2);
+		y = getRandomNumber(0.4, 0.6);
+
+		fprintf(of, "%f \t %f\n", x, y);
+
+
+		x = getRandomNumber(0, 1);
+		y = getRandomNumber(0, 1);
+		if (isInsideCircle(x, y))
+			fprintf(of, "%f \t %f\n", x + 1.2, y);
+
 
 	}
+
+
+
 	fclose(of);
 }
 
